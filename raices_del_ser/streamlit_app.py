@@ -141,41 +141,42 @@ if authentication_status:
                 fig_sankey.update_layout(title_text="Tu Mapa de Sanación", font_size=10)
                 st.plotly_chart(fig_sankey, use_container_width=True)
 
-            if st.button("Generar Informe PDF"):
-                try:
-                    with open('templates/informe.html', 'r', encoding='utf-8') as f:
-                        template_str = f.read()
-                    template = Template(template_str)
-                    fecha = datetime.now().strftime("%d/%m/%Y")
-                    frases = [
-                        "Libero lo que no es mío y recibo con gratitud lo que sí me pertenece.",
-                        "Tengo permiso para ser feliz.",
-                        "Te nombro, te honro, te doy un lugar en mi corazón."
-                    ]
-                    grafico_html = fig_sankey.to_html(include_plotlyjs='cdn', full_html=False)
-                    html_out = template.render(
-                        nombre=name,
-                        fecha=fecha,
-                        cartas=lectura,
-                        frases=frases,
-                        grafico=grafico_html
-                    )
-                    pdf_filename = f"informe_{username}_{uuid.uuid4().hex}.pdf"
-                    HTML(string=html_out).write_pdf(pdf_filename)
-                    st.session_state.pdf_file = pdf_filename
-                    st.success("Informe generado exitosamente.")
-                    with open(pdf_filename, "rb") as f:
-                        st.download_button(
-                            label="📥 Descargar PDF",
-                            data=f,
-                            file_name=pdf_filename,
-                            mime="application/pdf"
-                        )
-                    mensaje = f"Hola, comparto mi lectura de Raíces del Ser."
-                    whatsapp_url = f"https://wa.me/?text={mensaje}&app_absent=0"
-                    st.markdown(f"[📤 Enviar por WhatsApp]({whatsapp_url})", unsafe_allow_html=True)
-                except Exception as e:
-                    st.error(f"Error al generar PDF: {str(e)}")
+            # === GENERAR INFORME PDF ===
+if st.button("Generar Informe PDF"):
+    try:
+        with open('templates/informe.html', 'r', encoding='utf-8') as f:
+            template_str = f.read()
+        template = Template(template_str)
+        fecha = datetime.now().strftime("%d/%m/%Y")
+        frases = [
+            "Libero lo que no es mío y recibo con gratitud lo que sí me pertenece.",
+            "Tengo permiso para ser feliz.",
+            "Te nombro, te honro, te doy un lugar en mi corazón."
+        ]
+        grafico_html = fig_sankey.to_html(include_plotlyjs='cdn', full_html=False)
+        html_out = template.render(
+            nombre=name,
+            fecha=fecha,
+            cartas=lectura,
+            frases=frases,
+            grafico=grafico_html
+        )
+        pdf_filename = f"informe_{username}_{uuid.uuid4().hex}.pdf"
+        HTML(string=html_out).write_pdf(pdf_filename)
+        st.session_state.pdf_file = pdf_filename
+        st.success("Informe generado exitosamente.")
+        with open(pdf_filename, "rb") as f:
+            st.download_button(
+                label="📥 Descargar PDF",
+                data=f,
+                file_name=pdf_filename,
+                mime="application/pdf"
+            )
+        mensaje = f"Hola, comparto mi lectura de Raíces del Ser."
+        whatsapp_url = f"https://wa.me/?text={mensaje}&app_absent=0"
+        st.markdown(f"[📤 Enviar por WhatsApp]({whatsapp_url})", unsafe_allow_html=True)
+    except Exception as e:
+        st.error(f"Error al generar PDF: {str(e)}")
 
     # === CÍRCULO DE PRESENCIAS (GRUPAL) ===
     elif menu == "Círculo de Presencias":
