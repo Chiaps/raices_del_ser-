@@ -1,0 +1,13 @@
+cookie:
+  name: raices_del_ser_cookie
+  key: raices_del_ser_secret_key_12345
+  expiry_days: 30
+credentials:
+  usernames:
+    facilitador1:
+    password: '$2b$12$6u8PqJZz5q3p5q3p5q3p5uO8PqJZz5q3p5q3p5q3p5q3p5q3p5q3p5'  # hash de "password1"
+    name: Facilitador Uno
+  usernames:
+    facilitador2:
+    password: '$2b$12$6u8PqJZz5q3p5q3p5q3p5uO8PqJZz5q3p5q3p5q3p5q3p5q3p5q3p5'  # hash de "password2"
+    name: Facilitador Dos

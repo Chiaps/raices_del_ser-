@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Informe Raíces del Ser</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1, h2 { color: #2c5e3c; }
+        .frase { font-style: italic; color: #1a73e8; background: #f0f8ff; padding: 15px; border-left: 4px solid #1a73e8; margin: 20px 0; }
+        .footer { margin-top: 50px; font-size: 0.9em; color: #666; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Informe de Lectura - Raíces del Ser</h1>
+    <p><strong>Nombre:</strong> {{ nombre }}</p>
+    <p><strong>Fecha:</strong> {{ fecha }}</p>
+
+    <h2>Tu Tirada</h2>
+    <ul>
+        {% for carta in cartas %}
+        <li>{{ carta }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Frases Sanadoras</h2>
+    <div class="frase">
+        "{{ frases[0] }}"
+    </div>
+    <div class="frase">
+        "{{ frases[1] }}"
+    </div>
+
+    <h2>Mapa de Sanación</h2>
+    {{ grafico|safe }}
+
+    <div class="footer">
+        Raíces del Ser – Sistema de Sanación Transgeneracional<br>
+        "Tu cuerpo es el templo donde el linaje entero puede descansar."
+    </div>
+</body>
+</html>

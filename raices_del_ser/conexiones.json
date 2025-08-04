@@ -1,0 +1,17 @@
+[
+  {"source": "El Mundo", "target": "El Linaje", "value": 1},
+  {"source": "El Linaje", "target": "Sentido de Pertenencia", "value": 1},
+  {"source": "El Emperador", "target": "El Padre Silenciado", "value": 1},
+  {"source": "El Colgado", "target": "Acné", "value": 1},
+  {"source": "Acné", "target": "Libero lo que no es mío y recibo con gratitud lo que sí me pertenece.", "value": 1},
+  {"source": "La Torre", "target": "Trauma", "value": 1},
+  {"source": "Trauma", "target": "Insomnio", "value": 1},
+  {"source": "La Muerte", "target": "Transformación", "value": 1},
+  {"source": "Transformación", "target": "Renacimiento", "value": 1},
+  {"source": "Exclusión", "target": "El Ancestro No Nombrado", "value": 1},
+  {"source": "Lealtad Invisible", "target": "El Cuidador", "value": 1},
+  {"source": "Miedo al Éxito", "target": "Tengo permiso para ser feliz.", "value": 1},
+  {"source": "El Alma que Espera", "target": "Tu deseo no murió. Lo llevo en mí. Lo viviré con amor.", "value": 1},
+  {"source": "El Que Se Fue Temprano", "target": "Tu muerte no fue en vano. Tu vida vive en mi respiración.", "value": 1},
+  {"source": "La Gran Alma", "target": "Soy uno con todos. Todo está bien. Todo está completo.", "value": 1}
+]
