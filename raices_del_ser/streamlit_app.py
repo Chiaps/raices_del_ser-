@@ -171,7 +171,6 @@ if authentication_status:
                             file_name=pdf_filename,
                             mime="application/pdf"
                         )
-                    # Enlace WhatsApp
                     mensaje = f"Hola, comparto mi lectura de Raíces del Ser."
                     whatsapp_url = f"https://wa.me/?text={mensaje}&app_absent=0"
                     st.markdown(f"[📤 Enviar por WhatsApp]({whatsapp_url})", unsafe_allow_html=True)
@@ -242,8 +241,7 @@ if authentication_status:
         else:
             st.info("Aún no has generado ningún informe.")
 
-# === GUARDADO DE SESIÓN DE USUARIOS (opcional) ===
-if authentication_status:
-    if 'usuarios_data' not in st.session_state:
-        st.session_state.usuarios_data = {}
-    # Aquí puedes guardar datos de sesión si es necesario
+    # === GUARDADO DE SESIÓN DE USUARIOS (opcional) ===
+    if authentication_status:
+        if 'usuarios_data' not in st.session_state:
+            st.session_state.usuarios_data = {}
